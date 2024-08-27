@@ -14,10 +14,18 @@ return new class () extends Migration {
             $table->string('name');
             $table->timestamps();
         });
+
+        Schema::create('permission_user', function (Blueprint $table) {
+            $table->foreignId('permission_id')->constrained();
+            $table->foreignId('user_id')->constrained();
+        });
     }
 
     public function down(): void
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('permissions');
+        Schema::dropIfExists('permission_user');
+        Schema::enableForeignKeyConstraints();
     }
 };
