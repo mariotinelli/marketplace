@@ -20,7 +20,7 @@ jobs:
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
       
     - name: Install Dependencies
-      run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+      run: composer --no-ansi --no-interaction --no-progress install
       
     - name: Generate key
       run: php artisan key:generate
@@ -72,7 +72,7 @@ jobs:
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
       
     - name: Install Dependencies
-      run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+      run: composer --no-ansi --no-interaction --no-progress install
       
     - name: Generate key
       run: php artisan key:generate
@@ -87,4 +87,4 @@ jobs:
       run: npm run build
         
     - name: Execute tests (Unit and Feature tests) via PEST
-      run: vendor/bin/pest --parallel
+      run: vendor/bin/pest --parallel --stop-on-failure
