@@ -48,6 +48,17 @@
             "@php artisan key:generate --ansi",
             "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
             "@php artisan migrate --graceful --ansi"
+        ],
+        "fix": [
+            "./vendor/bin/pint"
+        ],
+        "stan": [
+            "./vendor/bin/phpstan analyse"
+        ],
+        "verify": [
+            "./vendor/bin/pint --test",
+            "composer stan",
+            "php artisan test --parallel"
         ]
     },
     "extra": {
