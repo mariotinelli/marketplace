@@ -10,4 +10,14 @@ use Illuminate\Database\Eloquent\Model;
 class IndividualStore extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'store_id',
+        'cpf',
+        'birthdate',
+        'address',
+        'city',
+        'state',
+        'zipcode'
+    ];
 }
