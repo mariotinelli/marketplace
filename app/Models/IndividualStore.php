@@ -4,6 +4,7 @@ declare(strict_types = 1);
 
 namespace App\Models;
 
+use App\Casts\ConvertCpf;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -18,6 +19,14 @@ class IndividualStore extends Model
         'address',
         'city',
         'state',
-        'zipcode'
+        'zipcode',
     ];
+
+    protected function casts(): array
+    {
+        return [
+            'cpf'       => ConvertCpf::class,
+            'birthdate' => 'date',
+        ];
+    }
 }
