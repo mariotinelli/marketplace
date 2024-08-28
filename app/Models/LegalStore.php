@@ -10,4 +10,13 @@ use Illuminate\Database\Eloquent\Model;
 class LegalStore extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'store_id',
+        'cnpj',
+        'name',
+        'corporate_name',
+        'state_registration',
+        'municipal_registration',
+    ];
 }
