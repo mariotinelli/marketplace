@@ -4,22 +4,21 @@ declare(strict_types = 1);
 
 namespace Database\Factories;
 
+use App\Models\Store;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\IndividualStore>
- */
 class IndividualStoreFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
     public function definition(): array
     {
         return [
-            //
+            'store_id'  => Store::factory(),
+            'cpf'       => $this->faker->numerify('###########'),
+            'birthdate' => $this->faker->date(),
+            'address'   => $this->faker->streetAddress(),
+            'city'      => $this->faker->city(),
+            'state'     => $this->faker->stateAbbr(),
+            'zipcode'   => $this->faker->postcode(),
         ];
     }
 }
