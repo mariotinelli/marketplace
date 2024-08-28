@@ -4,6 +4,8 @@ declare(strict_types = 1);
 
 namespace App\Models;
 
+use App\Casts\ConvertPhone;
+use App\Enums\StoreType;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
