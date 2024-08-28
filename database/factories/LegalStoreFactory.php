@@ -4,22 +4,20 @@ declare(strict_types = 1);
 
 namespace Database\Factories;
 
+use App\Models\Store;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\LegalStore>
- */
 class LegalStoreFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
     public function definition(): array
     {
         return [
-            //
+            'store_id' => Store::factory(),
+            'cnpj' => $this->faker->numerify('##############'),
+            'name' => $this->faker->company(),
+            'corporate_name' => $this->faker->company(),
+            'state_registration' => $this->faker->numerify('########'),
+            'municipal_registration' => $this->faker->numerify('########'),
         ];
     }
 }
