@@ -7,6 +7,7 @@ namespace App\Models;
 use App\Casts\ConvertCpf;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class IndividualStore extends Model
 {
@@ -28,5 +29,10 @@ class IndividualStore extends Model
             'cpf'       => ConvertCpf::class,
             'birthdate' => 'date',
         ];
+    }
+
+    public function store(): BelongsTo
+    {
+        return $this->belongsTo(Store::class);
     }
 }
