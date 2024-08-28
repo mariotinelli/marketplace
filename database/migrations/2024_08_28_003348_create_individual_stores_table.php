@@ -14,10 +14,6 @@ return new class () extends Migration {
             $table->foreignId('store_id')->constrained();
             $table->string('cpf')->unique();
             $table->date('birthdate');
-            $table->string('address');
-            $table->string('city');
-            $table->string('state');
-            $table->string('zipcode');
             $table->timestamps();
         });
     }
