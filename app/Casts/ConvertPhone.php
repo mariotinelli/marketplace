@@ -11,7 +11,11 @@ class ConvertPhone implements CastsAttributes
 {
     public function get(Model $model, string $key, mixed $value, array $attributes): string
     {
-        return str($value)->insert(0, '(')->insert(3, ')')->insert(4, ' ')->insert(9, '-')->toString();
+        return str($value)->substrReplace('(', 0, 0)
+            ->substrReplace(')', 3, 0)
+            ->substrReplace(' ', 4, 0)
+            ->substrReplace('-', 9, 0)
+            ->toString();
     }
 
     public function set(Model $model, string $key, mixed $value, array $attributes): string

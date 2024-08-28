@@ -11,7 +11,10 @@ class ConvertCpf implements CastsAttributes
 {
     public function get(Model $model, string $key, mixed $value, array $attributes): string
     {
-        return str($value)->insert(3, '.')->insert(7, '.')->insert(11, '-')->toString();
+        return str($value)->substrReplace('.', 3, 0)
+            ->substrReplace('.', 7, 0)
+            ->substrReplace('-', 11, 0)
+            ->toString();
     }
 
     public function set(Model $model, string $key, mixed $value, array $attributes): string

@@ -11,7 +11,11 @@ class ConvertCnpj implements CastsAttributes
 {
     public function get(Model $model, string $key, mixed $value, array $attributes): string
     {
-        return str($value)->insert('.', 2)->insert('.', 6)->insert('/', 10)->insert('-', 15)->toString();
+        return str($value)->substrReplace('.', 2, 0)
+            ->substrReplace('.', 6, 0)
+            ->substrReplace('/', 10, 0)
+            ->substrReplace('-', 15, 0)
+            ->toString();
     }
 
     public function set(Model $model, string $key, mixed $value, array $attributes): string
