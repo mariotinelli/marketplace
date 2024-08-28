@@ -20,7 +20,7 @@ class IndividualStore extends Model
         'address',
         'city',
         'state',
-        'zipcode'
+        'zipcode',
     ];
 
     protected function casts(): array
