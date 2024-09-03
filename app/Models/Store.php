@@ -8,6 +8,7 @@ use App\Casts\ConvertPhone;
 use App\Enums\StoreType;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Store extends Model
 {
@@ -29,5 +30,10 @@ class Store extends Model
             'type'  => StoreType::class,
             'phone' => ConvertPhone::class,
         ];
+    }
+
+    public function products(): HasMany
+    {
+        return $this->hasMany(Product::class);
     }
 }
