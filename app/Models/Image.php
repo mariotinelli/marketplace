@@ -6,6 +6,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Image extends Model
 {
@@ -13,6 +14,11 @@ class Image extends Model
 
     protected $fillable = [
         'sku_id',
-        'url'
+        'url',
     ];
+
+    public function sku(): BelongsTo
+    {
+        return $this->belongsTo(Sku::class);
+    }
 }
