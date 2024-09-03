@@ -10,4 +10,13 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'store_id',
+        'brand_id',
+        'category_id',
+        'name',
+        'slug',
+        'description',
+    ];
 }
